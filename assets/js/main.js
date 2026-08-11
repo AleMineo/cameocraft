@@ -156,12 +156,12 @@
 
 	$(document).ready(function() {
 
-		var email1 = "alessandra@cameocraftinc.com";
-		var email2 = "chris@cameocraftinc.com";
+	var email1 = "alessandra@cameocraftinc.com";
+	var email2 = "chris@cameocraftinc.com";
 
-		$('#email1').attr('href', 'mailto:' + email1).text(email1);
-		$('#email2').attr('href', 'mailto:' + email2).text(email2);
+	$('#email1').attr('href', 'mailto:' + email1);
+	$('#email2').attr('href', 'mailto:' + email2);
 
-	});
+});
 
 })(jQuery);
