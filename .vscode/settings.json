@@ -1,0 +1,8 @@
+{
+    "editor.tabCompletion": "off",
+    "editor.acceptSuggestionOnTab": "off",
+
+  "key": "tab",
+  "command": "editor.action.indentLines",
+  "when": "editorTextFocus && !editorReadonly"
+}

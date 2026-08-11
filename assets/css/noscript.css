@@ -1,0 +1,24 @@
+/*
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+/* Banner */
+body.is-preload #banner .logo {
+  transform: none;
+  opacity: 1;
+}
+body.is-preload #banner h2 {
+  opacity: 1;
+  transform: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  filter: none;
+}
+body.is-preload #banner p {
+  opacity: 1;
+  transform: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  filter: none;
+}/*# sourceMappingURL=noscript.css.map */
