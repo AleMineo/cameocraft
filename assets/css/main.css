@@ -1927,6 +1927,7 @@ ul.actions.fit.stacked {
   border: 1px solid #dddff0;
   border-radius: 18px;
   overflow: hidden;
+  margin-bottom: 35px;
   box-shadow: 0 12px 25px rgba(30, 30, 80, 0.15);
 }
 .event-card__logo {

@@ -15,7 +15,7 @@
 		breakpoints({
 			xlarge:	'(max-width: 1680px)',
 			large:	'(max-width: 1280px)',
-			medium:	'(max-width: 980px)',
+			medium:	'(max-width: 1024px)',
 			small:	'(max-width: 736px)',
 			xsmall:	'(max-width: 480px)'
 		});
@@ -156,11 +156,11 @@
 
 	$(document).ready(function() {
 
-	var email1 = "alessandra@cameocraftinc.com";
-	var email2 = "chris@cameocraftinc.com";
+	var email1 = "chris@cameocraftinc.com";
+	var email2 = "alessandra@cameocraftinc.com";
 
-	$('#email1').attr('href', 'mailto:' + email1);
-	$('#email2').attr('href', 'mailto:' + email2);
+	$('.email1').attr('href', 'mailto:' + email1);
+	$('.email2').attr('href', 'mailto:' + email2);
 
 });
 
