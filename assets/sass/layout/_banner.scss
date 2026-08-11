@@ -71,6 +71,11 @@
 									center;
 
 		 	margin-bottom: (_size(wrapper-edges, large) * -1);
+
+		.inner {
+			@include padding(3em, 3em);
+			width: 100%;
+		}
 		}
 
 		@include breakpoint('<=medium') {
