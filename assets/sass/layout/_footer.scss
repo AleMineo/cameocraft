@@ -81,7 +81,12 @@
 									center;
 
 		 	margin-top: (_size(wrapper-edges, large) * -1);
-		 	padding-top: _size(wrapper-edges, large);
+		 	padding-top: _size(wrapper-edges, large);			
+
+		.inner {
+			@include padding(3em, 3em);
+			width: 100%;
+		}
 
 		}
 

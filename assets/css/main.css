@@ -1917,6 +1917,154 @@ ul.actions.fit.stacked {
   }
 }
 
+.event-card {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 180px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #dddff0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(30, 30, 80, 0.15);
+}
+.event-card__logo {
+  flex: 0 0 255px;
+  padding: 22px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: linear-gradient(135deg, #f1f1f5 0%, #fff 100%);
+}
+.event-card__logo img {
+  display: block;
+  max-height: 100px;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+.event-card__content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  padding: 22px 30px;
+}
+.event-card__info {
+  flex: 0 0 290px;
+}
+.event-card__info h3 {
+  margin: 0 0 14px;
+  text-transform: capitalize;
+  color: #17127d;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+.event-card__date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #314e9b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.event-card__location {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.event-card svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+.event-card__location svg {
+  margin-top: 2px;
+}
+.event-card__lineup {
+  flex: 1;
+  min-width: 0;
+  padding-left: 30px;
+  border-left: 1px solid #d9d9e5;
+}
+.event-card__lineup-title {
+  margin-bottom: 14px;
+  color: #555;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.event-card__celebrities {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.event-card__celebrity {
+  width: 72px;
+  text-align: center;
+}
+.event-card__celebrity img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 7px;
+  object-fit: cover;
+  border: 2px solid #e2aa20;
+  border-radius: 50%;
+}
+.event-card__celebrity-name {
+  margin: 0;
+  color: #17127d;
+  font-size: 12px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.event-card__celebrity-role {
+  margin: 2px 0 0;
+  color: #777;
+  font-size: 10px;
+  line-height: 1.25;
+}
+@media (max-width: 800px) {
+  .event-card {
+    flex-direction: column;
+  }
+  .event-card__logo {
+    flex: none;
+    min-height: 180px;
+  }
+  .event-card__content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .event-card__info {
+    flex: none;
+    padding-right: 0;
+    padding-bottom: 25px;
+  }
+  .event-card__lineup {
+    padding-top: 25px;
+    padding-left: 0;
+    border-top: 1px solid #d9d9e5;
+    border-left: 0;
+  }
+  .event-card__celebrities {
+    justify-content: center;
+  }
+}
+
 /* Icons */
 ul.icons {
   cursor: default;
@@ -2702,6 +2850,10 @@ body.is-menu-visible #menu .inner {
     background-position: center, center;
     margin-bottom: -6.5em;
   }
+  #banner .inner {
+    padding: 3em 3em 1em 3em;
+    width: 100%;
+  }
 }
 @media screen and (max-width: 980px) {
   #banner {
@@ -2793,6 +2945,10 @@ body.is-preload #banner p {
     background-position: center, 0% 30%;
     margin-bottom: -6.5em;
   }
+  #wrapper > header .inner {
+    padding: 3em 3em 1em 3em;
+    width: 100%;
+  }
 }
 @media screen and (max-width: 980px) {
   #wrapper > header {
@@ -2800,9 +2956,6 @@ body.is-preload #banner p {
     background-size: auto, cover;
     background-position: center, 0% 0%;
     margin-bottom: -4.75em;
-  }
-  #wrapper > header .inner {
-    width: 100%;
   }
 }
 @media screen and (max-width: 736px) {
@@ -3043,6 +3196,12 @@ body.is-preload #banner p {
 .wrapper.spotlight.style6:after {
   box-shadow: inset 0 -1px 0 0 #435ab1, 0 1px 0 0 #435ab1;
 }
+@media screen and (max-width: 1280px) {
+  .wrapper .inner {
+    padding: 3em 3em 1em 3em;
+    width: 100%;
+  }
+}
 @media screen and (max-width: 980px) {
   .wrapper {
     margin: 4.75em 0;
@@ -3056,10 +3215,6 @@ body.is-preload #banner p {
   .wrapper:after {
     bottom: -4.75em;
     left: 0;
-  }
-  .wrapper .inner {
-    padding: 3em 3em 1em 3em;
-    width: 100%;
   }
   .wrapper.spotlight .image {
     margin: 0 2em 2em 0;
@@ -3271,6 +3426,10 @@ body.is-preload #banner p {
     background-position: center, center;
     margin-top: -6.5em;
     padding-top: 6.5em;
+  }
+  #footer .inner {
+    padding: 3em 3em 1em 3em;
+    width: 100%;
   }
 }
 @media screen and (max-width: 980px) {

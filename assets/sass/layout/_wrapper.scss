@@ -65,6 +65,13 @@
 				0% 30%;
 
 			margin-bottom: (_size(wrapper-edges, large) * -1);
+
+			
+
+		.inner {
+			@include padding(3em, 3em);
+			width: 100%;
+		}
 		}
 	}
 
@@ -79,10 +86,6 @@
 				0% 0%;
 
 			margin-bottom: (_size(wrapper-edges, medium) * -1);
-
-			.inner {
-				width: 100%;
-			}
 		}
 	}
 
@@ -211,6 +214,15 @@
 		}
 	}
 
+	@include breakpoint('<=large') {
+		
+
+		.inner {
+			@include padding(3em, 3em);
+			width: 100%;
+		}
+	}
+
 	@include breakpoint('<=medium') {
 		margin: _size(wrapper-edges, medium) 0;
 
@@ -226,11 +238,6 @@
 		&:after {
 			bottom: (_size(wrapper-edges, medium) * -1);
 			left: 0;
-		}
-
-		.inner {
-			@include padding(3em, 3em);
-			width: 100%;
 		}
 
 		&.spotlight {
