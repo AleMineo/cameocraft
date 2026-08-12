@@ -2008,6 +2008,7 @@ ul.actions.fit.stacked {
   display: flex;
   align-items: flex-start;
   gap: 28px;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -2851,7 +2852,6 @@ body.is-menu-visible #menu .inner {
     margin-bottom: -6.5em;
   }
   #banner .inner {
-    padding: 3em 3em 1em 3em;
     width: 100%;
   }
 }
