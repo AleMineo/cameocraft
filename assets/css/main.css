@@ -2013,7 +2013,6 @@ ul.actions.fit.stacked {
   list-style: none;
 }
 .event-card__celebrity {
-  width: 72px;
   text-align: center;
 }
 .event-card__celebrity img {
@@ -2022,7 +2021,7 @@ ul.actions.fit.stacked {
   height: 64px;
   margin: 0 auto 7px;
   object-fit: cover;
-  border: 2px solid #e2aa20;
+  border: 2px solid #372877;
   border-radius: 50%;
 }
 .event-card__celebrity-name {
