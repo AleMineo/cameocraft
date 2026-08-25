@@ -1,3 +1,7 @@
+@use "../libs/breakpoints";
+@use "../libs/functions";
+@use "../libs/vendor";
+
 ///
 /// Solid State by HTML5 UP
 /// html5up.net | @ajlkn
@@ -17,12 +21,12 @@
 			vertical-align: middle;
 
 			> .page {
-				@include vendor('transition', (
-					'background-color #{_duration(transition)} ease-in-out',
-					'color #{_duration(transition)} ease-in-out'
+				@include vendor.vendor('transition', (
+					'background-color #{functions.duration(transition)} ease-in-out',
+					'color #{functions.duration(transition)} ease-in-out'
 				));
 				border-bottom: 0;
-				border-radius: _size(border-radius);
+				border-radius: functions.size(border-radius);
 				display: inline-block;
 				height: 1.5em;
 				line-height: 1.5em;
@@ -32,11 +36,11 @@
 				text-align: center;
 
 				&:hover {
-					background-color: _palette(border-bg);
+					background-color: functions.palette(border-bg);
 				}
 
 				&.active {
-					background-color: _palette(accent);
+					background-color: functions.palette(accent);
 				}
 			}
 
@@ -49,7 +53,7 @@
 			}
 		}
 
-		@include breakpoint('<=xsmall') {
+		@include breakpoints.breakpoint('<=xsmall') {
 			li {
 				&:nth-child(n+2):nth-last-child(n+2) {
 					display: none;

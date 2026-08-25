@@ -1,3 +1,8 @@
+@use "../libs/breakpoints";
+@use "../libs/functions";
+@use "../libs/mixins";
+@use "../libs/vendor";
+
 ///
 /// Solid State by HTML5 UP
 /// html5up.net | @ajlkn
@@ -76,41 +81,41 @@ html{
 }
 
 	body, input, select, textarea {
-		color: _palette(fg);
-		font-family: _font(family);
+		color: functions.palette(fg);
+		font-family: functions.font(family);
 		font-size: 1.25rem; // 20px
-		font-weight: _font(weight);
+		font-weight: functions.font(weight);
 		line-height: 1.65;
 
 
 	}
 
 	a {
-		@include vendor('transition', 'color #{_duration(transition)} ease-in-out, border-bottom-color #{_duration(transition)} ease-in-out');
-		border-bottom: dotted 1px _palette(fg-light);
-		color: _palette(fg-bold);
+		@include vendor.vendor('transition', 'color #{functions.duration(transition)} ease-in-out, border-bottom-color #{functions.duration(transition)} ease-in-out');
+		border-bottom: dotted 1px functions.palette(fg-light);
+		color: functions.palette(fg-bold);
 		text-decoration: none;
 
 		&:hover {
 			border-bottom-color: transparent;
-			color: _palette(fg-bold) !important;
+			color: functions.palette(fg-bold) !important;
 		}
 
 		&.special:not(.button) {
-			@include icon(false, solid);
+			@include mixins.icon(false, solid);
 			border-bottom: 0;
 			display: block;
-			font-family: _font(family-heading);
+			font-family: functions.font(family-heading);
 			font-size: 0.8em;
-			font-weight: _font(weight-heading-bold);
-			letter-spacing: _font(kern-heading);
-			margin: 0 0 _size(element-margin) 0;
+			font-weight: functions.font(weight-heading-bold);
+			letter-spacing: functions.font(kern-heading);
+			margin: 0 0 functions.size(element-margin) 0;
 			text-transform: uppercase;
 
 			&:before {
-				@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
+				@include vendor.vendor('transition', 'background-color #{functions.duration(transition)} ease-in-out');
 				border-radius: 100%;
-				border: solid 2px _palette(border);
+				border: solid 2px functions.palette(border);
 				content: '\f105';
 				display: inline-block;
 				font-size: 1.25em;
@@ -125,21 +130,21 @@ html{
 
 			&:hover {
 				&:before {
-					background-color: _palette(border-bg);
+					background-color: functions.palette(border-bg);
 				}
 			}
 
 			&:active {
 				&:before {
-					background-color: _palette(border2-bg);
+					background-color: functions.palette(border2-bg);
 				}
 			}
 		}
 	}
 
 	strong, b {
-		color: _palette(fg-bold);
-		font-weight: _font(weight-bold);
+		color: functions.palette(fg-bold);
+		font-weight: functions.font(weight-bold);
 	}
 
 	em, i {
@@ -147,15 +152,15 @@ html{
 	}
 
 	p {
-		margin: 0 0 _size(element-margin) 0;
+		margin: 0 0 functions.size(element-margin) 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: _palette(fg-bold);
-		font-family: _font(family-heading);
-		font-weight: _font(weight-heading-bold);
-		letter-spacing: _font(kern-heading);
-		margin: 0 0 (_size(element-margin) * 0.5) 0;
+		color: functions.palette(fg-bold);
+		font-family: functions.font(family-heading);
+		font-weight: functions.font(weight-heading-bold);
+		letter-spacing: functions.font(kern-heading);
+		margin: 0 0 (functions.size(element-margin) * 0.5) 0;
 		text-transform: uppercase;
 
 		a {
@@ -165,12 +170,12 @@ html{
 		}
 
 		span {
-			font-weight: _font(weight-heading);
+			font-weight: functions.font(weight-heading);
 		}
 
 		&.major {
 			padding-bottom: 1em;
-			border-bottom: solid 2px _palette(border);
+			border-bottom: solid 2px functions.palette(border);
 		}
 	}
 
@@ -194,7 +199,7 @@ html{
 		font-size: 0.7em;
 	}
 
-	@include breakpoint('<=small') {
+	@include breakpoints.breakpoint('<=small') {
 		h2 {
 			font-size: 1em;
 		}
@@ -217,17 +222,17 @@ html{
 	}
 
 	blockquote {
-		border-left: solid 4px _palette(border);
+		border-left: solid 4px functions.palette(border);
 		font-style: italic;
-		margin: 0 0 _size(element-margin) 0;
-		padding: math.div(_size(element-margin), 4) 0 math.div(_size(element-margin), 4) _size(element-margin);
+		margin: 0 0 functions.size(element-margin) 0;
+		padding: math.div(functions.size(element-margin), 4) 0 math.div(functions.size(element-margin), 4) functions.size(element-margin);
 	}
 
 	code {
-		background: _palette(border-bg);
-		border-radius: _size(border-radius);
-		border: solid 2px _palette(border);
-		font-family: _font(family-fixed);
+		background: functions.palette(border-bg);
+		border-radius: functions.size(border-radius);
+		border: solid 2px functions.palette(border);
+		font-family: functions.font(family-fixed);
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
@@ -235,9 +240,9 @@ html{
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: _font(family-fixed);
+		font-family: functions.font(family-fixed);
 		font-size: 0.9em;
-		margin: 0 0 _size(element-margin) 0;
+		margin: 0 0 functions.size(element-margin) 0;
 
 		code {
 			display: block;
@@ -249,11 +254,11 @@ html{
  
 	hr {
 		border: 0;
-		border-bottom: solid 2px _palette(border);
-		margin: (_size(element-margin) * 1.25) 0;
+		border-bottom: solid 2px functions.palette(border);
+		margin: (functions.size(element-margin) * 1.25) 0;
 
 		&.major {
-			margin: (_size(element-margin) * 2) 0;
+			margin: (functions.size(element-margin) * 2) 0;
 		}
 	}
 
