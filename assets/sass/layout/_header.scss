@@ -1,3 +1,9 @@
+@use "sass:color";
+@use "../libs/breakpoints";
+@use "../libs/functions";
+@use "../libs/mixins";
+@use "../libs/vendor";
+
 ///
 /// Solid State by HTML5 UP
 /// html5up.net | @ajlkn
@@ -7,24 +13,24 @@
 /* Header */
 
 #header {
-	@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
-	background-color: transparentize(desaturate(lighten(_palette(bg), 3), 1.5), 0.05);
+	@include vendor.vendor('transition', 'background-color #{functions.duration(transition)} ease-in-out');
+	background-color: color.adjust(color.adjust(color.adjust(functions.palette(bg), $lightness: 3%), $saturation: -1.5%), $alpha: -0.05);
 	left: 0;
 	line-height: 3.5em;
 	padding: 0 1.25em;
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: _misc(z-index-base);
+	z-index: functions.misc(z-index-base);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 
 	.logo {
-		@include vendor('transition', ('opacity 2s ease',
+		@include vendor.vendor('transition', ('opacity 2s ease',
 				'transform 1s ease',
 			));
-		@include vendor('transform', 'translateY(0)');
+		@include vendor.vendor('transform', 'translateY(0)');
 		opacity: 1;
 		margin: 0.4rem 0;
 		max-width: 180px;
@@ -35,7 +41,7 @@
 			width: 100%;
 		}
 
-		@include breakpoint('<=small') {
+		@include breakpoints.breakpoint('<=small') {
 			img {
 				max-height: 50px;
 			}
@@ -59,7 +65,7 @@
 			li {
 				margin: 0;
 				padding: 0;
-				font-family: _font(family);
+				font-family: functions.font(family);
 				font-size: 1rem;
 
 				i {
@@ -84,7 +90,7 @@
 			}
 		}
 
-		@include breakpoint('<=small') {
+		@include breakpoints.breakpoint('<=small') {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -102,8 +108,8 @@
 	}
 
 	h1 {
-		@include vendor('transition', ('opacity #{_duration(transition)} ease-in-out',
-				'visibility #{_duration(transition)}'
+		@include vendor.vendor('transition', ('opacity #{functions.duration(transition)} ease-in-out',
+				'visibility #{functions.duration(transition)}'
 			));
 		border-bottom: 0;
 		font-size: 0.8em;
@@ -117,11 +123,11 @@
 	}
 
 	nav {
-		font-family: _font(family-heading);
+		font-family: functions.font(family-heading);
 		font-size: 0.8em;
-		font-weight: _font(weight-heading-bold);
+		font-weight: functions.font(weight-heading-bold);
 		height: 3em;
-		letter-spacing: _font(kern-heading);
+		letter-spacing: functions.font(kern-heading);
 		line-height: 3em;
 		right: 0.7em;
 		text-transform: uppercase;
@@ -138,10 +144,10 @@
 			}
 
 			&[href="#menu"] {
-				@include icon(false, solid);
-				@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
-				border-radius: _size(border-radius);
-				box-shadow: inset 0 0 0 2px _palette(border);
+				@include mixins.icon(false, solid);
+				@include vendor.vendor('transition', 'background-color #{functions.duration(transition)} ease-in-out');
+				border-radius: functions.size(border-radius);
+				box-shadow: inset 0 0 0 2px functions.palette(border);
 				padding: 0 1.35em;
 
 				&:before {
@@ -150,11 +156,11 @@
 				}
 
 				&:hover {
-					background-color: _palette(border-bg);
+					background-color: functions.palette(border-bg);
 				}
 
 				&:active {
-					background-color: _palette(border2-bg);
+					background-color: functions.palette(border2-bg);
 				}
 			}
 		}
@@ -165,7 +171,7 @@
 
 	}
 
-	@include breakpoint('<=medium') {
+	@include breakpoints.breakpoint('<=medium') {
 		nav {
 			a {
 				display: flex;
@@ -182,7 +188,7 @@
 		}
 	}
 
-	@include breakpoint('<=small') {
+	@include breakpoints.breakpoint('<=small') {
 		height: 6.75em;
 		line-height: 2.75em;
 		padding-top: 3em;
@@ -207,7 +213,7 @@
 		}
 	}
 
-	@include breakpoint('<=xsmall') {
+	@include breakpoints.breakpoint('<=xsmall') {
 		nav {
 			a {
 				&[href="#menu"] {
