@@ -23,14 +23,43 @@
 		};
 	}
 
+	// Generic "clone template, fill it in, append to container" renderer.
+	// Used by every dynamic list on the site so there's one place that
+	// handles the clone/append mechanics and one place that warns loudly
+	// (instead of silently doing nothing) when something in the HTML or
+	// data.js doesn't line up.
+	//
+	//   items        - array of data objects to render
+	//   templateId    - id of the <template> to clone per item
+	//   getContainer  - function(item) -> the container element to append into
+	//   fill          - function(node, item) -> fills in the cloned template
+	//   label         - short name used in console warnings, e.g. "talent"
+	function renderList(items, templateId, getContainer, fill, label) {
+		var template = document.getElementById(templateId);
+		if (!template) {
+			console.warn('[render.js] Missing <template id="' + templateId + '"> — skipping ' + label + ' list.');
+			return;
+		}
+
+		items.forEach(function (item, index) {
+			var container = getContainer(item);
+			if (!container) {
+				console.warn('[render.js] No matching container for ' + label + ' #' + index +
+					' (' + JSON.stringify(item) + ') — check its data against the HTML container ids.');
+				return;
+			}
+
+			var node = template.content.cloneNode(true);
+			fill(node, item);
+			container.appendChild(node);
+		});
+	}
+
 	// ---------------------------------------------------------------
 	// Talents lists (talents.html)
 	// ---------------------------------------------------------------
 	function renderTalents() {
 		if (typeof TALENTS_DATA === 'undefined') return;
-
-		var template = document.getElementById('talent-item-template');
-		if (!template) return;
 
 		// Map each category to its target <ul>.
 		var containers = {
@@ -44,28 +73,27 @@
 		// own container in this sorted order.
 		var sortedTalents = TALENTS_DATA.slice().sort(byName('name'));
 
-		sortedTalents.forEach(function (item) {
-			var container = containers[item.category];
-			if (!container) return;
+		renderList(
+			sortedTalents,
+			'talent-item-template',
+			function (item) { return containers[item.category]; },
+			function (node, item) {
+				var img = node.querySelector('img');
+				var span = node.querySelector('span');
+				var p = node.querySelector('p');
 
-			var node = template.content.cloneNode(true);
-			var li = node.querySelector('li');
-			var img = node.querySelector('img');
-			var span = node.querySelector('span');
-			var p = node.querySelector('p');
+				img.src = item.img;
+				img.alt = item.name;
+				setText(span, item.name);
 
-			img.src = item.img;
-			img.alt = item.name;
-			setText(span, item.name);
-
-			if (item.credits) {
-				setText(p, item.credits);
-			} else if (p) {
-				p.remove();
-			}
-
-			container.appendChild(li);
-		});
+				if (item.credits) {
+					setText(p, item.credits);
+				} else if (p) {
+					p.remove();
+				}
+			},
+			'talent'
+		);
 	}
 
 	// ---------------------------------------------------------------
