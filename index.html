@@ -149,455 +149,94 @@
 
 					<h2 class="major">Calendar</h2>
 
-					<article class="event-card">
+					<!-- Template: one empty event card "shape". Real cards are built
+					     from assets/js/data.js (CALENDAR_EVENTS) by assets/js/render.js -->
+					<template id="event-card-template">
+						<article class="event-card">
 
-						<!-- Logo -->
-						<div class="event-card__logo">
-							<img src="assets/images/abq-comic-conlogo.png" title="Albuquerque Comic Con">
-						</div>
-
-						<!-- Content -->
-						<div class="event-card__content">
-
-							<!-- Event information -->
-							<div class="event-card__info">
-
-								<h3>Albuquerque Comic Con</h3>
-
-								<p class="event-card__date">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-										<path d="M8 2v4" />
-										<path d="M16 2v4" />
-										<rect width="18" height="18" x="3" y="4" rx="2" />
-										<path d="M3 10h18" />
-										<path d="M8 14h.01" />
-										<path d="M12 14h.01" />
-										<path d="M16 14h.01" />
-										<path d="M8 18h.01" />
-										<path d="M12 18h.01" />
-										<path d="M16 18h.01" />
-									</svg>
-
-									15 - 17th Jan 2027
-								</p>
-
-								<p class="event-card__location">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-										<path
-											d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-										<circle cx="12" cy="10" r="3" />
-									</svg>
-
-									<span>
-Expo New Mexico</span>
-								</p>
-
+							<!-- Logo -->
+							<div class="event-card__logo">
+								<img src="" alt="" loading="lazy" width="1024" height="1024">
 							</div>
 
-							<!-- Clients lineup -->
-							<div class="event-card__lineup">
+							<!-- Content -->
+							<div class="event-card__content">
 
-								<div class="event-card__lineup-title">
-									Clients lineup
+								<!-- Event information -->
+								<div class="event-card__info">
+
+									<h3></h3>
+
+									<p class="event-card__date">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+											fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+											stroke-linejoin="round">
+											<path d="M8 2v4" />
+											<path d="M16 2v4" />
+											<rect width="18" height="18" x="3" y="4" rx="2" />
+											<path d="M3 10h18" />
+											<path d="M8 14h.01" />
+											<path d="M12 14h.01" />
+											<path d="M16 14h.01" />
+											<path d="M8 18h.01" />
+											<path d="M12 18h.01" />
+											<path d="M16 18h.01" />
+										</svg>
+										<span class="event-card__date-text"></span>
+									</p>
+
+									<p class="event-card__location">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+											fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+											stroke-linejoin="round">
+											<path
+												d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+											<circle cx="12" cy="10" r="3" />
+										</svg>
+										<span></span>
+									</p>
+
 								</div>
 
-								<ul class="event-card__celebrities">
+								<!-- Clients lineup -->
+								<div class="event-card__lineup">
 
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/manu-bennett.webp" alt="Manu Bennet" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Manu Bennet
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor
-										</p>
-									</li>
+									<div class="event-card__lineup-title">
+										Clients lineup
+									</div>
 
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/Dogpool.webp" alt="DogPool" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											DogPool
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor
-										</p>
-									</li>
+									<ul class="event-card__celebrities"></ul>
 
-								</ul>
-
-							</div>
-
-						</div>
-
-					</article>
-
-					<article class="event-card">
-
-						<!-- Logo -->
-						<div class="event-card__logo">
-							<img src="assets/images/lexington.png" alt="Lexington Comic & Toy Convention" loading="lazy"
-								width="1024" height="1024">
-						</div>
-
-						<!-- Content -->
-						<div class="event-card__content">
-
-							<!-- Event information -->
-							<div class="event-card__info">
-
-								<h3>Lexington Comic & Toy Convention</h3>
-
-								<p class="event-card__date">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-										<path d="M8 2v4" />
-										<path d="M16 2v4" />
-										<rect width="18" height="18" x="3" y="4" rx="2" />
-										<path d="M3 10h18" />
-										<path d="M8 14h.01" />
-										<path d="M12 14h.01" />
-										<path d="M16 14h.01" />
-										<path d="M8 18h.01" />
-										<path d="M12 18h.01" />
-										<path d="M16 18h.01" />
-									</svg>
-
-									September 4-6, 2026
-								</p>
-
-								<p class="event-card__location">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-										<path
-											d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-										<circle cx="12" cy="10" r="3" />
-									</svg>
-
-									<span>Central Bank Center · Lexington, KY</span>
-								</p>
-
-							</div>
-
-							<!-- Clients lineup -->
-							<div class="event-card__lineup">
-
-								<div class="event-card__lineup-title">
-									Clients lineup
 								</div>
 
-								<ul class="event-card__celebrities">
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/chaterine-tate.webp" alt="Catherine Tate" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Catherine Tate
-										</p>
-										<p class="event-card__celebrity-role">
-											Actress
-										</p>
-									</li>
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/Kenny-Johnson.png" alt="Kenny Johnson" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Kenny Johnson
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor
-										</p>
-									</li>
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/Dogpool.webp" alt="DogPool" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											DogPool
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor
-										</p>
-									</li>
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/wrestlers/The_Rock_27_Roll_Express.webp" alt="Rock and Roll Express" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Rock and Roll Express
-										</p>
-										<p class="event-card__celebrity-role">
-											Wrestlers
-										</p>
-									</li>
-
-								</ul>
-
 							</div>
 
-						</div>
+						</article>
+					</template>
 
-					</article>
-					
-					
-					<article class="event-card">
+					<!-- Template: one empty celebrity "shape" for the lineup list -->
+					<template id="event-card-celebrity-template">
+						<li class="event-card__celebrity">
+							<img src="" alt="" loading="lazy" width="768" height="768">
+							<p class="event-card__celebrity-name"></p>
+							<p class="event-card__celebrity-role"></p>
+						</li>
+					</template>
 
-						<!-- Logo -->
-						<div class="event-card__logo">
-							<img src="assets/images/orlfbs.png" alt="Fanboy Expo Orlando" loading="lazy" width="1024"
-								height="1024">
-						</div>
+					<!-- Calendar cards get rendered in here by assets/js/render.js -->
+					<div id="calendar-list" class="event-cards"></div>
 
-						<!-- Content -->
-						<div class="event-card__content">
-
-							<!-- Event information -->
-							<div class="event-card__info">
-
-								<h3>Fanboy Expo Orlando</h3>
-
-								<p class="event-card__date">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-										<path d="M8 2v4" />
-										<path d="M16 2v4" />
-										<rect width="18" height="18" x="3" y="4" rx="2" />
-										<path d="M3 10h18" />
-										<path d="M8 14h.01" />
-										<path d="M12 14h.01" />
-										<path d="M16 14h.01" />
-										<path d="M8 18h.01" />
-										<path d="M12 18h.01" />
-										<path d="M16 18h.01" />
-									</svg>
-
-									August 28-30, 2026
-								</p>
-
-								<p class="event-card__location">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-										<path
-											d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-										<circle cx="12" cy="10" r="3" />
-									</svg>
-
-									<span>Hilton · Orlando, FL</span>
-								</p>
-
-							</div>
-
-							<!-- Clients lineup -->
-							<div class="event-card__lineup">
-
-								<div class="event-card__lineup-title">
-									Clients lineup
-								</div>
-
-								<ul class="event-card__celebrities">
-									
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/chaterine-tate.webp" alt="Catherine Tate" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Catherine Tate
-										</p>
-										<p class="event-card__celebrity-role">
-											Actress
-										</p>
-									</li>
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/richard-armitage.webp" alt="Richard Armitage" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Richard Armitage
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor 
-										</p>
-									</li>
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/manu-bennett.webp" alt="Manu Bennett" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Manu Bennett
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor
-										</p>
-									</li>
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/Graham-McTavish.jfif" alt="Graham McTavish" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Graham McTavish
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor
-										</p>
-									</li>
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/Dogpool.webp" alt="DogPool" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											DogPool
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor
-										</p>
-									</li>
-
-								</ul>
-
-							</div>
-
-						</div>
-
-					</article>
-
-					<article class="event-card disabled">
-
-						<!-- Logo -->
-						<div class="event-card__logo">
-							<img src="assets/images/TanoshiiLogo transparent.avif" alt="Tanoshii Con" loading="lazy"
-								width="1024" height="1024">
-						</div>
-
-						<!-- Content -->
-						<div class="event-card__content">
-
-							<!-- Event information -->
-							<div class="event-card__info">
-
-								<h3>Tanoshii Con</h3>
-
-								<p class="event-card__date">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-										<path d="M8 2v4" />
-										<path d="M16 2v4" />
-										<rect width="18" height="18" x="3" y="4" rx="2" />
-										<path d="M3 10h18" />
-										<path d="M8 14h.01" />
-										<path d="M12 14h.01" />
-										<path d="M16 14h.01" />
-										<path d="M8 18h.01" />
-										<path d="M12 18h.01" />
-										<path d="M16 18h.01" />
-									</svg>
-
-									Aug, 22-23 2026
-								</p>
-
-								<p class="event-card__location">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-										stroke-linejoin="round">
-										<path
-											d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-										<circle cx="12" cy="10" r="3" />
-									</svg>
-
-									<span>
-Ocean Center Daytona Beach</span>
-								</p>
-
-							</div>
-
-							<!-- Clients lineup -->
-							<div class="event-card__lineup">
-
-								<div class="event-card__lineup-title">
-									Clients lineup
-								</div>
-
-								<ul class="event-card__celebrities">
-
-									<li class="event-card__celebrity">
-										<img src="assets/images/talents/actors/joe-chrest.jpg" alt="Joe Chrest" loading="lazy"
-											width="768" height="768">
-										<p class="event-card__celebrity-name">
-											Joe Chrest
-										</p>
-										<p class="event-card__celebrity-role">
-											Actor
-										</p>
-									</li>
-
-								</ul>
-
-							</div>
-
-						</div>
-
-					</article>
 
 
 
 					<h2 class="major">Events we worked with</h2>
-					<ul class="partners-logos">
-						<li><img src="assets/images/abq-comic-conlogo.png" alt="Albuquerque Comic Con"
-								title="Albuquerque Comic Con"></li>
-						<li><img src="assets/images/C2E220-Logo.png" alt="Chicago Comic & Entertainment Expo"
-								title="Chicago Comic & Entertainment Expo"></li>
-						<li><img src="assets/images/CCk LOGO.jpg" alt="Comic Con Kentucky" title="Comic Con Kentucky">
-						</li>
-						<li><img src="assets/images/TanoshiiLogo transparent.avif" alt="Tanoshii Con" title="Tanoshii Con">
-						</li>
-						<li><img src="assets/images/ccxp-logo.jpg" alt="Comic Con Experience"
-								title="Comic Con Experience"></li>
-						<li><img src="assets/images/Comic_con_ger_logo.png" alt="Comic Con Germany"
-								title="Comic Con Germany"></li>
-						<li><img src="assets/images/comicon-colombia.png" alt="Comic Con Colombia"
-								title="Comic Con Colombia"></li>
-						<li><img src="assets/images/comicon-liverpool_logo.jpg" alt="Comicon Liverpool"
-								title="Comicon Liverpool"></li>
-						<li><img src="assets/images/dragon-con_logo.png" alt="Dragon con" title="Dragon con"></li>
-						<li><img src="assets/images/Fan X Salt Lake_logo.webp" alt="FAN X Salt Lake City"
-								title="FAN X Salt Lake City"></li>
-						<li><img src="assets/images/Festa-Unicorno-logo.jpg" alt="Festa dell'Unicorno"
-								title="Festa dell'Unicorno"></li>
-						<li><img src="assets/images/Florida Supercon_logo.png" alt="Florida Supercon"
-								title="Florida Supercon"></li>
-						<li><img src="assets/images/FTLOW-logo.png" alt="For the Love of Wrestling"
-								title="For the Love of Wrestling"></li>
-						<li><img src="assets/images/FXC - Logos_RGB.png" alt="FAN EXPO Canada" title="FAN EXPO Canada">
-						</li>
-						<li><img src="assets/images/galaxycon_logo.avif" alt="GalaxyCon" title="GalaxyCon"></li>
-						<li><img src="assets/images/Heroes_ComicCon_logo.png" alt="Heroes Comicon"
-								title="Heroes Comicon"></li>
-						<li><img src="assets/images/lexington.png" alt="Lexington Comic Con"
-								title="Lexington Comic Con"></li>
-						<li><img src="assets/images/MCM-london_logo.png" alt="MCM London Comic Con"
-								title="MCM London Comic Con"></li>
-						<li><img src="assets/images/NYCC21-Logo.png" alt="New York Comicon" title="New York Comicon">
-						</li>
-						<li><img src="assets/images/orlfbs.png" alt="Orlando Fan Boy Expo" title="Orlando Fan Boy Expo">
-						</li>
-						<li><img src="assets/images/Rccc-logo.jpg" alt="Rose City Comic Con"
-								title="Rose City Comic Con"></li>
-						<li><img src="assets/images/SNCCG_supanova.webp" alt="Supanova Comicon"
-								title="Supanova Comicon"></li>
-						<li><img src="assets/images/WonderCon-logo.jpg" alt="WonderCon" title="WonderCon"></li>
-						<li><img src="assets/images/wales-comicon_logo.webp" alt="Wales Comicon" alt="Wales Comicon">
-						</li>
+					<!-- Template: one empty logo "shape". Real logos are built
+					     from assets/js/data.js (CONS_LOGOS) by assets/js/render.js -->
+					<template id="cons-logo-template">
+						<li><img src="" alt="" title=""></li>
+					</template>
 
-					</ul>
+					<ul class="partners-logos" id="cons-logos-list"></ul>
 
 				</div>
 			</section>
@@ -629,6 +268,7 @@ Ocean Center Daytona Beach</span>
 					<li>&copy; CameoCraft Talent 2026. All rights reserved.</li>
 					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					<li>Images: <a href="http://pexels.com">PEXELS</a></li>
+					<li><a href="privacy-policy.html">Privacy Policy</a></li>
 					<li>&copy; All celebrities images are the property of their respective owners and are used for
 						informational purposes only</li>
 				</ul>
@@ -643,6 +283,8 @@ Ocean Center Daytona Beach</span>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
+	<script src="assets/js/data.js"></script>
+	<script src="assets/js/render.js"></script>
 	<script src="assets/js/main.js"></script>
 
 </body>
