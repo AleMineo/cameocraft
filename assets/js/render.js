@@ -23,6 +23,18 @@
 		};
 	}
 
+	// Scrolls smoothly, handled by the browser's compositor thread rather
+	// than our own JS — this matters because "Load more" adds a dozen
+	// new images at once, and a hand-rolled requestAnimationFrame scroll
+	// would stall while the main thread is busy decoding/painting them
+	// (producing exactly the "freeze then jump" look). Native smooth
+	// scrolling keeps animating through that regardless.
+	function smoothScrollToElement(el, offset) {
+		if (!el) return;
+		var targetY = el.getBoundingClientRect().top + window.pageYOffset - (offset || 20);
+		window.scrollTo({ top: Math.max(targetY, 0), left: 0, behavior: 'smooth' });
+	}
+
 	// Generic "clone template, fill it in, append to container" renderer.
 	// Used by every dynamic list on the site so there's one place that
 	// handles the clone/append mechanics and one place that warns loudly
@@ -57,43 +69,138 @@
 
 	// ---------------------------------------------------------------
 	// Talents lists (talents.html)
+	// Only the active category is ever in the DOM, and only the number
+	// of items currently "shown" — nothing gets rendered (and no image
+	// gets requested) until it's actually needed. Pagination is a plain
+	// item count (not grid rows), which keeps this fast: no forced
+	// layout measurement on every click, so the smooth-scroll animation
+	// isn't fighting a blocked main thread.
 	// ---------------------------------------------------------------
+	var ITEMS_PER_PAGE = 12;
+	var TALENT_CATEGORIES = ['movies-tv', 'voice-actors', 'wrestlers'];
+
+	function fillTalentNode(node, item) {
+		var li = node.querySelector('li');
+		var img = node.querySelector('img');
+		var span = node.querySelector('span');
+		var p = node.querySelector('p');
+
+		li.dataset.category = item.category;
+		img.src = item.img;
+		img.alt = item.name;
+		img.loading = 'lazy';
+		img.decoding = 'async';
+		setText(span, item.name);
+
+		if (item.credits) {
+			setText(p, item.credits);
+		} else if (p) {
+			p.remove();
+		}
+	}
+
+	// Clears the list and renders the first `count` items — a plain
+	// slice, no layout reads, so this stays cheap even for 100+ items.
+	function renderTalentsPage(ul, template, items, count) {
+		ul.innerHTML = '';
+		items.slice(0, count).forEach(function (item) {
+			var node = template.content.cloneNode(true);
+			fillTalentNode(node, item);
+			node.querySelector('li').classList.add('talent-fade-in');
+			ul.appendChild(node);
+		});
+	}
+
 	function renderTalents() {
 		if (typeof TALENTS_DATA === 'undefined') return;
 
-		// Map each category to its target <ul>.
-		var containers = {
-			'movies-tv': document.getElementById('talents-movies-tv'),
-			'voice-actors': document.getElementById('talents-voice-actors'),
-			'wrestlers': document.getElementById('talents-wrestlers')
-		};
+		var listEl = document.getElementById('talents-list');
+		var template = document.getElementById('talent-item-template');
+		var filterButtons = document.querySelectorAll('.talent-filter-btn');
+		var loadMoreBtn = document.getElementById('talents-load-more');
 
-		// Sort a copy alphabetically by name before rendering — each
-		// category ends up alphabetized since items are appended to their
-		// own container in this sorted order.
-		var sortedTalents = TALENTS_DATA.slice().sort(byName('name'));
+		if (!listEl || !template || !filterButtons.length || !loadMoreBtn) {
+			console.warn('[render.js] Talents filter UI is missing required elements — skipping talents list.');
+			return;
+		}
 
-		renderList(
-			sortedTalents,
-			'talent-item-template',
-			function (item) { return containers[item.category]; },
-			function (node, item) {
-				var img = node.querySelector('img');
-				var span = node.querySelector('span');
-				var p = node.querySelector('p');
+		// Group + alphabetize once.
+		var byCategory = {};
+		TALENT_CATEGORIES.forEach(function (cat) { byCategory[cat] = []; });
 
-				img.src = item.img;
-				img.alt = item.name;
-				setText(span, item.name);
+		TALENTS_DATA.forEach(function (item, index) {
+			if (!byCategory[item.category]) {
+				console.warn('[render.js] Talent #' + index + ' (' + item.name + ') has unknown category "' +
+					item.category + '" — it will not be shown. Expected one of: ' + TALENT_CATEGORIES.join(', '));
+				return;
+			}
+			byCategory[item.category].push(item);
+		});
+		TALENT_CATEGORIES.forEach(function (cat) { byCategory[cat].sort(byName('name')); });
 
-				if (item.credits) {
-					setText(p, item.credits);
-				} else if (p) {
-					p.remove();
-				}
-			},
-			'talent'
-		);
+		var activeCategory = 'movies-tv'; // only this category renders on first load
+		var itemsShown = {}; // remembers how many items were showing per category
+
+		function refreshLoadMoreButton() {
+			var items = byCategory[activeCategory];
+			var shown = Math.min(itemsShown[activeCategory] || ITEMS_PER_PAGE, items.length);
+
+			if (items.length <= ITEMS_PER_PAGE) {
+				loadMoreBtn.style.display = 'none';
+				return;
+			}
+
+			if (shown < items.length) {
+				loadMoreBtn.textContent = 'Load more';
+				loadMoreBtn.dataset.mode = 'more';
+			} else {
+				loadMoreBtn.textContent = 'Load less';
+				loadMoreBtn.dataset.mode = 'less';
+			}
+			loadMoreBtn.style.display = 'inline-block';
+		}
+
+		function showCategory(category) {
+			activeCategory = category;
+			var items = byCategory[category];
+			var count = Math.min(itemsShown[category] || ITEMS_PER_PAGE, items.length);
+			renderTalentsPage(listEl, template, items, count);
+			itemsShown[category] = count;
+			refreshLoadMoreButton();
+		}
+
+		filterButtons.forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				filterButtons.forEach(function (b) { b.classList.toggle('active', b === btn); });
+				showCategory(btn.dataset.category);
+			});
+		});
+
+		loadMoreBtn.addEventListener('click', function () {
+			var items = byCategory[activeCategory];
+
+			if (loadMoreBtn.dataset.mode === 'less') {
+				itemsShown[activeCategory] = ITEMS_PER_PAGE;
+				renderTalentsPage(listEl, template, items, ITEMS_PER_PAGE);
+				refreshLoadMoreButton();
+				smoothScrollToElement(document.querySelector('.talent-filters'), 100);
+				return;
+			}
+
+			var previousCount = itemsShown[activeCategory] || ITEMS_PER_PAGE;
+			var nextCount = Math.min(previousCount + ITEMS_PER_PAGE, items.length);
+			renderTalentsPage(listEl, template, items, nextCount);
+			itemsShown[activeCategory] = nextCount;
+			refreshLoadMoreButton();
+
+			// Scroll to the first newly-revealed card (not down to the
+			// button, which now sits below all the new content) so the
+			// view stays focused on what just appeared.
+			var firstNewItem = listEl.children[previousCount];
+			smoothScrollToElement(firstNewItem || loadMoreBtn, 100);
+		});
+
+		showCategory(activeCategory);
 	}
 
 	// ---------------------------------------------------------------

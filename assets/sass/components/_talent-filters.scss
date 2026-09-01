@@ -1,0 +1,68 @@
+@use "sass:color";
+@use "../libs/functions";
+@use "../libs/vendor";
+
+///
+/// Talent filter buttons + "Load more" (talents.html)
+/// Custom addition — not part of the original HTML5 UP build.
+///
+
+/* Talent filters */
+
+	#wrapper .talent-filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin: 1.5em 0 2em;
+	}
+
+	#wrapper .talent-filter-btn {
+		@include vendor.vendor('appearance', 'none');
+		@include vendor.vendor('transition', 'background-color #{functions.duration(transition)} ease-in-out, color #{functions.duration(transition)} ease-in-out');
+		background-color: transparent !important;
+		background-image: none !important;
+		color: functions.palette(fg-light) !important;
+		border: 2px solid functions.palette(fg-light) !important;
+		box-shadow: none !important;
+		border-radius: 999px;
+		height: auto !important;
+		line-height: 1.2 !important;
+		padding: 0.65em 1.6em !important;
+		font-family: functions.font(family-heading);
+		font-size: 0.8em !important;
+		font-weight: functions.font(weight-heading-bold) !important;
+		letter-spacing: functions.font(kern-heading);
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&:hover {
+			background-color: color.change(functions.palette(fg), $alpha: 0.12) !important;
+			color: functions.palette(fg) !important;
+		}
+
+		&.active {
+			background-color: functions.palette(fg) !important;
+			border-color: functions.palette(fg) !important;
+			color: functions.palette(bg) !important;
+		}
+	}
+
+	#wrapper .talents-load-more-wrap {
+		text-align: center;
+		margin-top: 1em;
+	}
+
+	@keyframes talent-fade-in {
+		from {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	#wrapper .partners-logos.talents li.talent-fade-in {
+		animation: talent-fade-in 0.35s ease-out;
+	}

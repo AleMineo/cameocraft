@@ -1070,7 +1070,7 @@ const CALENDAR_EVENTS = [
     "name": "Fanboy Expo Orlando",
     "date": "August 28-30, 2026",
     "location": "Hilton · Orlando, FL",
-    "disabled": false,
+    "disabled": true,
     "lineup": [
       {
         "img": "assets/images/talents/actors/chaterine-tate.webp",
