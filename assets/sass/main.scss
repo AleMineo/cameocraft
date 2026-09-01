@@ -46,6 +46,7 @@
 	@include meta.load-css('components/pagination');
 	@include meta.load-css('components/table');
 	@include meta.load-css('components/button');
+	@include meta.load-css('components/talent-filters');
 	@include meta.load-css('components/features');
 
 // Layout.

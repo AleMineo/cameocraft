@@ -108,8 +108,7 @@
 						comic-cons and fan events worldwide.</p>
 
 					<!-- Template: one empty talent item "shape". Real items are built
-					     from assets/js/data.js (TALENTS_DATA) by assets/js/render.js.
-					     The same template is used for all three lists below. -->
+					     from assets/js/data.js (TALENTS_DATA) by assets/js/render.js. -->
 					<template id="talent-item-template">
 						<li>
 							<img src="" alt="">
@@ -118,14 +117,21 @@
 						</li>
 					</template>
 
-					<h3 class="major">Movies and TV Shows</h3>
-					<ul class="partners-logos talents mb-4" id="talents-movies-tv"></ul>
+					<!-- Filter buttons: which category of talent is showing -->
+					<div class="talent-filters" role="tablist" aria-label="Filter talent by type">
+						<button type="button" class="talent-filter-btn active" data-category="movies-tv">Actors</button>
+						<button type="button" class="talent-filter-btn" data-category="voice-actors">Voice Actors</button>
+						<button type="button" class="talent-filter-btn" data-category="wrestlers">Wrestlers</button>
+					</div>
 
-					<h3 class="major">Voice actors</h3>
-					<ul class="partners-logos talents mb-4" id="talents-voice-actors"></ul>
+					<!-- All talents render in here; render.js shows/hides by category -->
+					<ul class="partners-logos talents mb-4" id="talents-list"></ul>
 
-					<h3 class="major">Wrestlers</h3>
-					<ul class="partners-logos talents mb-4" id="talents-wrestlers"></ul>
+					<!-- Shown automatically only when the active category has more
+					     than 4 rows of items -->
+					<div class="talents-load-more-wrap">
+						<button type="button" id="talents-load-more" class="button primary" style="display:none;">Load more</button>
+					</div>
 
 				</div>
 			</div>
@@ -146,10 +152,10 @@
 					</li>
 					<li class="icon solid fa-phone">+1 (606) 389-2711</li>
 					<li class="icon solid fa-envelope">
-						For US: <a class="email1" href="#">Chris</a>
+						For US: <a class="email2" href="#">Chris</a>
 					</li>
 					<li class="icon solid fa-envelope">
-						For EU: <a class="email2" href="#">Alessandra</a>
+						For EU: <a class="email1" href="#">Alessandra</a>
 					</li>
 				</ul>
 				<ul class="copyright">
