@@ -719,6 +719,18 @@ const TALENTS_DATA = [
   },
   {
     "category": "movies-tv",
+    "img": "assets/images/talents/actors/joe-davison.jfif",
+    "name": "Joe Davison",
+    "credits": "Stranger Things"
+  },
+  {
+    "category": "movies-tv",
+    "img": "assets/images/talents/actors/josh-turner.jpg",
+    "name": "Josh Turner",
+    "credits": "The Vampire Diaries, The walking dead, Ant-Man, OVW-WWE"
+  },
+  {
+    "category": "movies-tv",
     "img": "assets/images/talents/actors/Zachary-Quinto.jpg",
     "name": "Zachary Quinto",
     "credits": "Star Trek reboot film franchise, Heroes, American Horror Story: Asylum, Brilliant Minds"
@@ -1036,7 +1048,7 @@ const CALENDAR_EVENTS = [
     "name": "Lexington Comic & Toy Convention",
     "date": "September 4-6, 2026",
     "location": "Central Bank Center · Lexington, KY",
-    "disabled": false,
+    "disabled": true,
     "lineup": [
       {
         "img": "assets/images/talents/actors/chaterine-tate.webp",
