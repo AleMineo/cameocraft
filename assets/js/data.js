@@ -89,12 +89,6 @@ const TALENTS_DATA = [
   },
   {
     "category": "movies-tv",
-    "img": "assets/images/talents/actors/chaterine-tate.webp",
-    "name": "Catherine Tate",
-    "credits": "Doctor Who, Queen of OZ, The office, Gulliver's travels"
-  },
-  {
-    "category": "movies-tv",
     "img": "assets/images/talents/actors/Chris-Larkin.jpg",
     "name": "Chris Larkin",
     "credits": "Master and Commander: The Far Side of the World, Hitler: The Rise of Evil, Black Sails"
