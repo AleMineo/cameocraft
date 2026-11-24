@@ -47,12 +47,6 @@ const TALENTS_DATA = [
   },
   {
     "category": "movies-tv",
-    "img": "assets/images/talents/actors/Beth-Chapman.jpg",
-    "name": "Beth Chapman",
-    "credits": "Dog the Bounty Hunter"
-  },
-  {
-    "category": "movies-tv",
     "img": "assets/images/talents/actors/Bob-Layton.jpeg",
     "name": "Bob Layton",
     "credits": "Iron Man, Hercules"
@@ -80,12 +74,6 @@ const TALENTS_DATA = [
     "img": "assets/images/talents/actors/Brianna-Hildebrand.jpg",
     "name": "Brianna Hildebrand",
     "credits": "Deadpool film series, Trinkets, Lucifer, Tragedy Girls"
-  },
-  {
-    "category": "movies-tv",
-    "img": "assets/images/talents/actors/Burt-Reynolds.webp",
-    "name": "Burt Reynolds",
-    "credits": "Smokey and the Bandit, Deliverance, The Longest Yard, Boogie Nights, The Cannonball Run"
   },
   {
     "category": "movies-tv",
@@ -140,12 +128,6 @@ const TALENTS_DATA = [
     "img": "assets/images/talents/actors/Darko-Peric.jpg",
     "name": "Darko Peric",
     "credits": "Money Heist (La Casa de Papel)"
-  },
-  {
-    "category": "movies-tv",
-    "img": "assets/images/talents/actors/David-Bailie.jpg",
-    "name": "David Bailie",
-    "credits": "Pirates of the Caribbean franchise, Doctor Who"
   },
   {
     "category": "movies-tv",
@@ -317,12 +299,6 @@ const TALENTS_DATA = [
   },
   {
     "category": "movies-tv",
-    "img": "assets/images/talents/actors/Jeremy-Bulloch.jpg",
-    "name": "Jeremy Bulloch",
-    "credits": "Star Wars: Episode V The Empire Strikes Back, Return of the Jedi, Revenge of the Sith, James Bond franchise, Doctor Who"
-  },
-  {
-    "category": "movies-tv",
     "img": "assets/images/talents/actors/joe-chrest.jpg",
     "name": "Joe Chrest",
     "credits": "Stranger Things, 21 Jump Street, The lucky one, Gifted, The Hunger Games, True Detective, Ant-man"
@@ -350,12 +326,6 @@ const TALENTS_DATA = [
     "img": "assets/images/talents/actors/Kane_Hodder.webp",
     "name": "Kane Hodder",
     "credits": "Friday the 13th franchise, Hatchet"
-  },
-  {
-    "category": "movies-tv",
-    "img": "assets/images/talents/actors/Kenny-Baker.jpeg",
-    "name": "Kenny Baker",
-    "credits": "Star Wars franchise, Time Bandits, The Elephant Man"
   },
   {
     "category": "movies-tv",
@@ -521,12 +491,6 @@ const TALENTS_DATA = [
   },
   {
     "category": "movies-tv",
-    "img": "assets/images/talents/actors/Nichelle-Nichols.avif",
-    "name": "Nichelle Nichols",
-    "credits": "Star Trek franchise"
-  },
-  {
-    "category": "movies-tv",
     "img": "assets/images/talents/actors/nikolaj-coster-waldau.jpg",
     "name": "Nikolaj Coster-Waldau",
     "credits": "Game of Thrones, Black Hawk Down, Headhunters, Mama, Oblivion"
@@ -548,12 +512,6 @@ const TALENTS_DATA = [
     "img": "assets/images/talents/actors/Patrick-Gallagher.jpg",
     "name": "Patrick Gallagher",
     "credits": "Night at the Museum franchise, Da Vinci's Inquest, Glee, Master and Commander, Sideways"
-  },
-  {
-    "category": "movies-tv",
-    "img": "assets/images/talents/actors/Peter_Mayhew.jpg",
-    "name": "Peter Mayhew",
-    "credits": "Star Wars Saga, Terror"
   },
   {
     "category": "movies-tv",
@@ -596,12 +554,6 @@ const TALENTS_DATA = [
     "img": "assets/images/talents/actors/RobertWuhl.webp",
     "name": "Robert Wuhl",
     "credits": "Arli$$, Batman, Bull Durham"
-  },
-  {
-    "category": "movies-tv",
-    "img": "assets/images/talents/actors/ron-glass.jpg",
-    "name": "Ron Glass",
-    "credits": "Barney Miller, Firefly, Serenity"
   },
   {
     "category": "movies-tv",
@@ -881,26 +833,8 @@ const TALENTS_DATA = [
   },
   {
     "category": "wrestlers",
-    "img": "assets/images/talents/wrestlers/Harley-Race.jpg",
-    "name": "Harley Race",
-    "credits": ""
-  },
-  {
-    "category": "wrestlers",
-    "img": "assets/images/talents/wrestlers/hulk-hogan.jpg",
-    "name": "Hulk Hogan",
-    "credits": ""
-  },
-  {
-    "category": "wrestlers",
     "img": "assets/images/talents/wrestlers/Jake-Roberts-with-snake.jpg",
     "name": "Jake “The Snake” Roberts",
-    "credits": ""
-  },
-  {
-    "category": "wrestlers",
-    "img": "assets/images/talents/wrestlers/Jerry_Jarrett_resize.jpg",
-    "name": "Jerry Jarrett",
     "credits": ""
   },
   {
@@ -925,12 +859,6 @@ const TALENTS_DATA = [
     "category": "wrestlers",
     "img": "assets/images/talents/wrestlers/mick-foley.jpg",
     "name": "Mick Foley",
-    "credits": ""
-  },
-  {
-    "category": "wrestlers",
-    "img": "assets/images/talents/wrestlers/Mr-Wonderful-Paul-Orndorff.jpg",
-    "name": "“Mr. Wonderful” Paul Orndorff",
     "credits": ""
   },
   {
@@ -965,12 +893,6 @@ const TALENTS_DATA = [
   },
   {
     "category": "wrestlers",
-    "img": "assets/images/talents/wrestlers/Road_Warrior_Animal.jpg",
-    "name": "Road Warrior Animal",
-    "credits": ""
-  },
-  {
-    "category": "wrestlers",
     "img": "assets/images/talents/wrestlers/Taryn-Terrell.jpg",
     "name": "Taryn Terrell",
     "credits": ""
@@ -989,20 +911,8 @@ const TALENTS_DATA = [
   },
   {
     "category": "wrestlers",
-    "img": "assets/images/talents/wrestlers/Razor_Ramon.webp",
-    "name": "Scott \"Razor Ramon\" Hall",
-    "credits": ""
-  },
-  {
-    "category": "wrestlers",
     "img": "assets/images/talents/wrestlers/sting.avif",
     "name": "Sting",
-    "credits": ""
-  },
-  {
-    "category": "wrestlers",
-    "img": "assets/images/talents/wrestlers/Ultimate-Warrior.jpg",
-    "name": "Ultimate Warrior",
     "credits": ""
   }
 ];
